@@ -1,0 +1,142 @@
+{
+  "trained_at_utc": "2026-10-27T17:06:11+00:00",
+  "deployed_model": "Logistic Regression (TF-IDF)",
+  "random_seed": 42,
+  "versions": {
+    "python": "3.12.3",
+    "scikit_learn": "1.8.0",
+    "pandas": "3.0.2",
+    "numpy": "2.4.4"
+  },
+  "dataset_inspection_raw": {
+    "rows": 6335,
+    "columns": [
+      "id",
+      "title",
+      "text",
+      "label"
+    ],
+    "missing_values": {
+      "id": 0,
+      "title": 0,
+      "text": 0,
+      "label": 0
+    },
+    "blank_text_rows": 36,
+    "duplicate_text_rows": 275,
+    "duplicate_title_rows": 79,
+    "class_distribution": {
+      "REAL": 3171,
+      "FAKE": 3164
+    },
+    "words_per_article": {
+      "mean": 776.3,
+      "median": 597.0,
+      "min": 0,
+      "max": 20891
+    }
+  },
+  "cleaning_log": {
+    "rows_initial": 6335,
+    "dropped_missing_or_unknown_label": 0,
+    "dropped_blank_text": 36,
+    "dropped_conflicting_label_duplicates": 0,
+    "dropped_duplicate_text": 241,
+    "rows_final": 6058,
+    "dropped_empty_after_preprocessing": 0
+  },
+  "split": {
+    "train": 4846,
+    "test": 1212,
+    "test_size": 0.2,
+    "stratified": true
+  },
+  "tfidf_params": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 3,
+    "max_df": 0.9,
+    "max_features": 30000,
+    "sublinear_tf": true
+  },
+  "tfidf_vocabulary_size": 30000,
+  "results": {
+    "Naive Bayes (TF-IDF)": {
+      "accuracy": 0.929042904290429,
+      "precision_fake": 0.9414715719063546,
+      "recall_fake": 0.9169381107491856,
+      "f1_fake": 0.929042904290429,
+      "f1_macro": 0.929042904290429,
+      "confusion_matrix": [
+        [
+          563,
+          35
+        ],
+        [
+          51,
+          563
+        ]
+      ],
+      "cv_accuracy_mean": 0.9108548508931517,
+      "cv_accuracy_std": 0.006440316795037504,
+      "cv_f1_mean": 0.909690198023485,
+      "train_accuracy": 0.9434585224927775
+    },
+    "Logistic Regression (TF-IDF)": {
+      "accuracy": 0.9447194719471947,
+      "precision_fake": 0.9334389857369255,
+      "recall_fake": 0.9592833876221498,
+      "f1_fake": 0.9461847389558233,
+      "f1_macro": 0.9446784593846123,
+      "confusion_matrix": [
+        [
+          556,
+          42
+        ],
+        [
+          25,
+          589
+        ]
+      ],
+      "cv_accuracy_mean": 0.9215841605225922,
+      "cv_accuracy_std": 0.007156638819069862,
+      "cv_f1_mean": 0.9240042284611304,
+      "train_accuracy": 0.9727610400330169
+    },
+    "Logistic Regression (TF-IDF + sentiment)": {
+      "accuracy": 0.9463696369636964,
+      "precision_fake": 0.9309262166405023,
+      "recall_fake": 0.9657980456026058,
+      "f1_fake": 0.9480415667466027,
+      "f1_macro": 0.9463140485054411,
+      "confusion_matrix": [
+        [
+          554,
+          44
+        ],
+        [
+          21,
+          593
+        ]
+      ],
+      "cv_accuracy_mean": 0.9184890364176056,
+      "cv_accuracy_std": 0.005348915191209207,
+      "cv_f1_mean": 0.9212092039159175,
+      "train_accuracy": 0.9713165497317375
+    }
+  },
+  "headline_only_accuracy_primary_model": 0.6039603960396039,
+  "headline_only_n": 1212,
+  "sentiment_by_class": {
+    "FAKE": {
+      "mean": -0.0029,
+      "std": 0.8747
+    },
+    "REAL": {
+      "mean": 0.2379,
+      "std": 0.8954
+    }
+  }
+}

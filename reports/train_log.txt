@@ -1,0 +1,89 @@
+RAW DATA: {
+  "rows": 6335,
+  "columns": [
+    "id",
+    "title",
+    "text",
+    "label"
+  ],
+  "missing_values": {
+    "id": 0,
+    "title": 0,
+    "text": 0,
+    "label": 0
+  },
+  "blank_text_rows": 36,
+  "duplicate_text_rows": 275,
+  "duplicate_title_rows": 79,
+  "class_distribution": {
+    "REAL": 3171,
+    "FAKE": 3164
+  },
+  "words_per_article": {
+    "mean": 776.3,
+    "median": 597.0,
+    "min": 0,
+    "max": 20891
+  }
+}
+CLEANING LOG: {
+  "rows_initial": 6335,
+  "dropped_missing_or_unknown_label": 0,
+  "dropped_blank_text": 36,
+  "dropped_conflicting_label_duplicates": 0,
+  "dropped_duplicate_text": 241,
+  "rows_final": 6058
+}
+Computing VADER sentiment ...
+Preprocessing text ...
+Train: 4846  Test: 1212
+
+=== Naive Bayes (TF-IDF) ===
+              precision    recall  f1-score   support
+
+        REAL     0.9169    0.9415    0.9290       598
+        FAKE     0.9415    0.9169    0.9290       614
+
+    accuracy                         0.9290      1212
+   macro avg     0.9292    0.9292    0.9290      1212
+weighted avg     0.9294    0.9290    0.9290      1212
+
+Accuracy 0.9290 | CV acc 0.9109 +/- 0.0064 | train acc 0.9435
+
+=== Logistic Regression (TF-IDF) ===
+              precision    recall  f1-score   support
+
+        REAL     0.9570    0.9298    0.9432       598
+        FAKE     0.9334    0.9593    0.9462       614
+
+    accuracy                         0.9447      1212
+   macro avg     0.9452    0.9445    0.9447      1212
+weighted avg     0.9450    0.9447    0.9447      1212
+
+Accuracy 0.9447 | CV acc 0.9216 +/- 0.0072 | train acc 0.9728
+
+=== Logistic Regression (TF-IDF + sentiment) ===
+              precision    recall  f1-score   support
+
+        REAL     0.9635    0.9264    0.9446       598
+        FAKE     0.9309    0.9658    0.9480       614
+
+    accuracy                         0.9464      1212
+   macro avg     0.9472    0.9461    0.9463      1212
+weighted avg     0.9470    0.9464    0.9463      1212
+
+Accuracy 0.9464 | CV acc 0.9185 +/- 0.0053 | train acc 0.9713
+
+Headline-only accuracy (primary model): 0.604
+Sentiment by class:
+          mean     std
+label                
+FAKE  -0.0029  0.8747
+REAL   0.2379  0.8954
+
+Top REAL terms: ['said', 'gop', 'obama', 'cruz', 'republican', 'republicans', 'president', 'tuesday', 'conservative', 'debate', 'candidates', 'sanders', 'state', 'percent', 'thursday']
+Top FAKE terms: ['2016', 'october', 'election', 'hillary', 'article', 'november', 'us', 'november 2016', 'share', 'russia', 'source', 'wikileaks', 'via', 'email', 'podesta']
+
+Saved model  -> /home/claude/fake-news-detection/models/logreg_model.joblib
+Saved vectorizer -> /home/claude/fake-news-detection/models/tfidf_vectorizer.joblib
+Saved metrics -> /home/claude/fake-news-detection/reports/metrics.json

@@ -1,0 +1,30 @@
+=== Naive Bayes (TF-IDF) ===
+              precision    recall  f1-score   support
+
+        REAL     0.9169    0.9415    0.9290       598
+        FAKE     0.9415    0.9169    0.9290       614
+
+    accuracy                         0.9290      1212
+   macro avg     0.9292    0.9292    0.9290      1212
+weighted avg     0.9294    0.9290    0.9290      1212
+
+=== Logistic Regression (TF-IDF) ===
+              precision    recall  f1-score   support
+
+        REAL     0.9570    0.9298    0.9432       598
+        FAKE     0.9334    0.9593    0.9462       614
+
+    accuracy                         0.9447      1212
+   macro avg     0.9452    0.9445    0.9447      1212
+weighted avg     0.9450    0.9447    0.9447      1212
+
+=== Logistic Regression (TF-IDF + sentiment) ===
+              precision    recall  f1-score   support
+
+        REAL     0.9635    0.9264    0.9446       598
+        FAKE     0.9309    0.9658    0.9480       614
+
+    accuracy                         0.9464      1212
+   macro avg     0.9472    0.9461    0.9463      1212
+weighted avg     0.9470    0.9464    0.9463      1212
+
